@@ -89,5 +89,35 @@ namespace HomeWork_1
                 Console.WriteLine("Ответ: X1 = {0:0.000}, X2 = {1:0.000}", xOne, xTwo);
             }
         }
+
+        // Задание #4
+        // Реализовать программу подсчета средней заработной платы
+        // Пользователь вводит количество сотрудников и их зарплаты
+        // программа выодит среднюю зп
+
+        // Метод запускает программу
+        public static void StartProgram()
+        {
+                int n;
+                Console.WriteLine("Введите количество сотрудников");
+                n = Convert.ToInt16(Console.ReadLine());
+                Console.WriteLine("Средняя зарплата равно: {0:0.00} руб.", SalaryDB(ref n));
+                Console.ReadKey();
+         }
+         // метод подсчитыает среднюю зарплату из массива сотрудников и возвращает значение
+         public static decimal SalaryDB(ref int n)
+         {
+                decimal[] salary = new decimal[n];
+                int i = 0;
+                while (i < n)
+                {
+                    Console.WriteLine("Введите зарплату сотрудника, в руб.");
+                    salary[i] = Decimal.Parse(Console.ReadLine());
+                    Console.WriteLine();
+                    i++;
+                }
+                decimal avgSalary = salary.Average();
+                return avgSalary;
+          }
     }
 }
